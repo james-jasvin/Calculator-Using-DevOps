@@ -1,6 +1,6 @@
 ---
 - name: Deploy a jar file
-  hosts: docker
+  hosts: calculatorAgent1
   remote_user: jasvin
   tasks:
     - name: Copy jar file to home directory

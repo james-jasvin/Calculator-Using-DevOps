@@ -1,10 +1,12 @@
 ---
 - name: Pull docker image of Calculator
-  hosts: all
-  vars:
-    ansible_python_interpreter: /usr/bin/python3
+  hosts: localhost
+  connection: local
+  become: true
   tasks:
     - name: Pull image
       docker_image:
         name: jasvinjames/calculator-using-devops
         source: pull
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
