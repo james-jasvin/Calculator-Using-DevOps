@@ -1,6 +1,7 @@
 ---
 - name: Pull docker image of Calculator
-  hosts: all
+  hosts: calculatorAgent1
+  remote_user: jasvin
   tasks:
     - name: Pull image
       docker_image:
