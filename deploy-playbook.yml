@@ -2,6 +2,8 @@
 - name: Pull docker image of Calculator
   hosts: calculatorAgent1
   remote_user: jasvin
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
   tasks:
     - name: Pull image
       docker_image:
