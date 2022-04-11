@@ -13,5 +13,6 @@
     - name: Pull image
       docker_image:
         name: jasvinjames/calculator-using-devops
+        tag: latest
         source: pull
 
