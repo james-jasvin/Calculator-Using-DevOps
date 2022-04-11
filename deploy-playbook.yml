@@ -4,11 +4,6 @@
   vars:
     ansible_python_interpreter: /usr/bin/python3
   tasks:
-    - name: Remove image
-      docker_image:
-        state: absent
-        name: jasvinjames/calculator-using-devops
-
     - name: Pull image
       docker_image:
         name: jasvinjames/calculator-using-devops
