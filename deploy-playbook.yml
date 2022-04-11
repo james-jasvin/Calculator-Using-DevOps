@@ -8,7 +8,6 @@
       docker_image:
         state: absent
         name: jasvinjames/calculator-using-devops
-        tag: latest
 
     - name: Pull image
       docker_image:
