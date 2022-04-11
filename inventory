@@ -1,4 +1,3 @@
-#[calculatorAgent1]
-#172.17.0.2 ansible_ssh_pass=password ansible_ssh_user=jasvin ansible_sudo_pass=password
+#localhost ansible_user=jasvin
 
-localhost ansible_user=jasvin
+172.16.132.241 ansible_user=jasvin
