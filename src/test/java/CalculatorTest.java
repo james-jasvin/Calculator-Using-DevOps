@@ -8,14 +8,14 @@ public class CalculatorTest {
 
     @Test
     public void factorialTruePositive(){
-        assertEquals("Finding factorial of a number for True Positive", 120, calculator.fact(5), DELTA);
-        assertEquals("Finding factorial of a number for True Positive", 24, calculator.fact(4), DELTA);
+        assertEquals("Finding factorial of a number for True Positive", 120, calculator.factorial(5), DELTA);
+        assertEquals("Finding factorial of a number for True Positive", 24, calculator.factorial(4), DELTA);
     }
 
     @Test
     public void factorialFalsePositive(){
-        assertNotEquals("Finding factorial of a number for False Positive", 120, calculator.fact(6), DELTA);
-        assertNotEquals("Finding factorial of a number for False Positive", 24, calculator.fact(3), DELTA);
+        assertNotEquals("Finding factorial of a number for False Positive", 120, calculator.factorial(6), DELTA);
+        assertNotEquals("Finding factorial of a number for False Positive", 24, calculator.factorial(3), DELTA);
     }
 
     @Test
