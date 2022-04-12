@@ -16,8 +16,8 @@ public class Calculator {
         Scanner scanner = new Scanner(System.in);
         double number1, number2;
 
-        System.out.println("Press any key to start the application\n");
-        scanner.next();
+        System.out.println("Press Enter key to start the application\n");
+        scanner.nextLine();
 
         do {
             System.out.println("Calculator-DevOps, Choose to perform operation");
