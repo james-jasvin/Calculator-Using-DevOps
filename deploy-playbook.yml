@@ -23,5 +23,3 @@
       docker_container:
         name: calculator-using-devops
         image: jasvinjames/calculator-using-devops
-        state: present
-        restart: yes
