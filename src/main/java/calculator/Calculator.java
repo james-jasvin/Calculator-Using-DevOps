@@ -6,14 +6,12 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Calculator {
-
     private static final Logger logger = LogManager.getLogger(Calculator.class);
 
     public Calculator() {
     }
 
     public static void main(String[] args) {
-
         Calculator calculator = new Calculator();
         Scanner scanner = new Scanner(System.in);
         double number1, number2;
@@ -23,9 +21,11 @@ public class Calculator {
             System.out.print("Press 1 to find factorial\nPress 2 to find Square root\nPress 3 to find power\nPress 4 to find natural logarithm\n" +
                     "Press 5 to exit\nEnter your choice: ");
             int choice;
+
             try {
                 choice = scanner.nextInt();
-            } catch (InputMismatchException error) {
+            }
+            catch (InputMismatchException error) {
                 return;
             }
 
@@ -34,7 +34,7 @@ public class Calculator {
                     // find factorial
                     System.out.print("Enter a number : ");
                     number1 = scanner.nextDouble();
-                    System.out.println("Factorial of "+number1+" is : " + calculator.factorial(number1));
+                    System.out.println("Factorial of " + number1 + " is : " + calculator.factorial(number1));
                     System.out.println("\n");
 
                     break;
@@ -43,7 +43,7 @@ public class Calculator {
                     // find square root
                     System.out.print("Enter a number : ");
                     number1 = scanner.nextDouble();
-                    System.out.println("Square root of "+number1+" is : " + calculator.sqroot(number1));
+                    System.out.println("Square root of " + number1 + " is : " + calculator.sqroot(number1));
                     System.out.println("\n");
                     break;
 
@@ -53,7 +53,7 @@ public class Calculator {
                     number1 = scanner.nextDouble();
                     System.out.print("Enter the second number : ");
                     number2 = scanner.nextDouble();
-                    System.out.println(number1+ " raised to power "+number2+" is : " + calculator.power(number1, number2));
+                    System.out.println(number1 + " raised to power " + number2+" is : " + calculator.power(number1, number2));
                     System.out.println("\n");
                     break;
 
@@ -61,7 +61,7 @@ public class Calculator {
                     // find natural log
                     System.out.print("Enter a number : ");
                     number1 = scanner.nextDouble();
-                    System.out.println("Natural log of "+number1+" is : " + calculator.naturalLog(number1));
+                    System.out.println("Natural log of " + number1 + " is : " + calculator.naturalLog(number1));
                     System.out.println("\n");
                     break;
 
@@ -100,15 +100,16 @@ public class Calculator {
     public double naturalLog(double number1) {
         logger.info("[NATURAL LOG] - " + number1);
         double result = 0;
-        try {
 
+        try {
             if (number1 < 0) {
                 result = Double.NaN;
                 throw new ArithmeticException("Case of NaN 0.0/0.0");
-            } else {
-                result = Math.log(number1);
             }
-        } catch (ArithmeticException error) {
+            else
+                result = Math.log(number1);
+        }
+        catch (ArithmeticException error) {
             System.out.println("[EXCEPTION - LOG] - Cannot find log of negative numbers " + error.getLocalizedMessage());
         }
         logger.info("[RESULT - NATURAL LOG] - " + result);

@@ -10,3 +10,7 @@
         tag: latest
         source: pull
 
+    - name: Create Calculator Docker container
+      docker_container:
+        name: calculator-using-devops
+        image: jasvinjames/calculator-using-devops
