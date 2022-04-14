@@ -33,7 +33,7 @@ public class CalculatorTest {
     @Test
     public void logTruePositive(){
         assertEquals("Finding natural log for True Positive", 0, calculator.naturalLog(1), DELTA);
-        assertEquals("Finding natural log for True Positive", 5.70378247466, calculator.naturalLog(300), DELTA);
+        assertEquals("Finding natural log for True Positive", 5.703782474656201, calculator.naturalLog(300), DELTA);
     }
 
     @Test
