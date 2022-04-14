@@ -16,18 +16,21 @@ public class Calculator {
         Scanner scanner = new Scanner(System.in);
         double number1, number2;
 
+        // When the Docker container is started in the background via Ansible and you attach your terminal to it,
+        // the initial application System.out.println statements are wiped out, to avoid that we use this stop-gap fix
+        // Only enter the application once the user has pressed Enter key on the terminal.
         System.out.println("Press Enter key to start the application\n");
         scanner.nextLine();
 
         do {
             System.out.println("Calculator-DevOps, Choose to perform operation");
             System.out.print(
-                    "Press 1 to find factorial\n" +
-                    "Press 2 to find Square root\n" +
-                    "Press 3 to find power\n" +
-                    "Press 4 to find natural logarithm\n" +
-                    "Press 5 to exit\n" +
-                    "Enter your choice: "
+                "Press 1 to find Factorial\n" +
+                "Press 2 to find Square Root\n" +
+                "Press 3 to find Power\n" +
+                "Press 4 to find Natural Logarithm\n" +
+                "Press 5 to Exit\n" +
+                "Enter your choice: "
             );
 
             int choice;

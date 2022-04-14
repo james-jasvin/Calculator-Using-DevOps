@@ -8,51 +8,50 @@ public class CalculatorTest {
 
     @Test
     public void factorialTruePositive(){
-        assertEquals("Finding factorial of a number for True Positive", 120, calculator.factorial(5), DELTA);
-        assertEquals("Finding factorial of a number for True Positive", 24, calculator.factorial(4), DELTA);
+        assertEquals("Finding factorial of a number for True Positive", 6, calculator.factorial(3), DELTA);
+        assertEquals("Finding factorial of a number for True Positive", 720, calculator.factorial(6), DELTA);
     }
 
     @Test
-    public void factorialFalsePositive(){
-        assertNotEquals("Finding factorial of a number for False Positive", 120, calculator.factorial(6), DELTA);
-        assertNotEquals("Finding factorial of a number for False Positive", 24, calculator.factorial(3), DELTA);
+    public void factorialTrueNegative(){
+        assertNotEquals("Finding factorial of a number for True Negative", 69, calculator.factorial(5), DELTA);
+        assertNotEquals("Finding factorial of a number for True Negative", 42, calculator.factorial(10), DELTA);
     }
 
     @Test
     public void powerTruePositive(){
-        assertEquals("Finding power for True Positive", 8, calculator.power(2, 3), DELTA);
-        assertEquals("Finding power for True Positive", 64, calculator.power(4, 3), DELTA);
+        assertEquals("Finding power for True Positive", 32, calculator.power(2, 5), DELTA);
+        assertEquals("Finding power for True Positive", 81, calculator.power(9, 2), DELTA);
     }
 
     @Test
-    public void powerFalsePositive(){
-        assertNotEquals("Finding power for False Positive", 6, calculator.power(2, 2), DELTA);
-        assertNotEquals("Finding power for False Positive", -7.3, calculator.power(2, 3), DELTA);
+    public void powerTrueNegative(){
+        assertNotEquals("Finding power for True Negative", 69, calculator.power(2, 2), DELTA);
+        assertNotEquals("Finding power for True Negative", -69420, calculator.power(-2, 20), DELTA);
     }
 
     @Test
     public void logTruePositive(){
         assertEquals("Finding natural log for True Positive", 0, calculator.naturalLog(1), DELTA);
-        assertEquals("Finding natural log for True Positive", 0, calculator.naturalLog(1), DELTA);
+        assertEquals("Finding natural log for True Positive", 5.70378247466, calculator.naturalLog(300), DELTA);
     }
 
     @Test
-    public void logFalsePositive(){
-        assertNotEquals("Finding natural log for False Positive", 6, calculator.naturalLog(2.4), DELTA);
-        assertNotEquals("Finding natural log for False Positive", 7.3, calculator.naturalLog(2.1), DELTA);
+    public void logTrueNegative(){
+        assertNotEquals("Finding natural log for True Negative", 69, calculator.naturalLog(2.4), DELTA);
+        assertNotEquals("Finding natural log for True Negative", 420, calculator.naturalLog(2.1), DELTA);
     }
 
     @Test
     public void sqrootTruePositive(){
-        assertEquals("Finding square root for True Positive", 2, calculator.sqroot(4), DELTA);
-        assertEquals("Finding square root for True Positive", 1, calculator.sqroot(1), DELTA);
+        assertEquals("Finding square root for True Positive", 11, calculator.sqroot(121), DELTA);
+        assertEquals("Finding square root for True Positive", 121, calculator.sqroot(14641), DELTA);
     }
 
     @Test
-    public void sqrootFalsePositive(){
-        assertNotEquals("Finding square root for False Positive", 1, calculator.sqroot(3), DELTA);
-        assertNotEquals("Finding square root for False Positive", 0, calculator.sqroot(4), DELTA);
-
+    public void sqrootTrueNegative(){
+        assertNotEquals("Finding square root for True Negative", 69, calculator.sqroot(3), DELTA);
+        assertNotEquals("Finding square root for True Negative", -42, calculator.sqroot(4), DELTA);
     }
 
 
