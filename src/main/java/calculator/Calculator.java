@@ -15,7 +15,7 @@ public class Calculator {
         Calculator calculator = new Calculator();
         Scanner scanner = new Scanner(System.in);
         double d_number1, d_number2;
-        int i_number1, i_number2;
+        int i_number1;
 
         // When the Docker container is started in the background via Ansible and you attach your terminal to it,
         // the initial application System.out.println statements are wiped out, to avoid that we use this stop-gap fix
@@ -26,11 +26,11 @@ public class Calculator {
         do {
             System.out.println("Calculator-DevOps, Choose to perform operation");
             System.out.print(
-                "Press 1 to find Factorial\n" +
-                "Press 2 to find Square Root\n" +
-                "Press 3 to find Power\n" +
-                "Press 4 to find Natural Logarithm\n" +
-                "Press 5 to Exit\n" +
+                "Enter 1 to find Factorial\n" +
+                "Enter 2 to find Square Root\n" +
+                "Enter 3 to find Power\n" +
+                "Enter 4 to find Natural Logarithm\n" +
+                "Enter any other input to Exit\n" +
                 "Enter your choice: "
             );
 
@@ -40,43 +40,110 @@ public class Calculator {
                 choice = scanner.nextInt();
             }
             catch (InputMismatchException error) {
+                System.out.println("Exiting....");
                 return;
             }
 
             switch (choice) {
                 case 1:
                     // find factorial
-                    System.out.print("Enter a number : ");
-                    i_number1 = scanner.nextInt();
-                    System.out.println("Factorial of " + i_number1 + " is : " + calculator.factorial(i_number1));
-                    System.out.println("\n");
+                    i_number1 = -1;
 
+                    // Keep executing do-while loop till user enters a non-negative integer
+                    while (i_number1 < 0) {
+                        try {
+                            System.out.print("Enter a non-negative integer : ");
+                            i_number1 = scanner.nextInt();
+
+                            if (i_number1 < 0)
+                                System.out.println("Factorial is only applicable for non-negative integers");
+                            else
+                                System.out.println("Factorial of " + i_number1 + " is: " + calculator.factorial(i_number1) + "\n");
+                        }
+                        // To handle cases where user enters non-numeric input
+                        catch (InputMismatchException e) {
+                            System.out.println("Square Root is only applicable for non-negative numbers");
+                        }
+                        scanner.nextLine(); // Clear the buffer to receive new input
+                    }
                     break;
 
                 case 2:
                     // find square root
-                    System.out.print("Enter a number : ");
-                    d_number1 = scanner.nextDouble();
-                    System.out.println("Square root of " + d_number1 + " is : " + calculator.squareRoot(d_number1));
-                    System.out.println("\n");
+                    d_number1 = -1;
+
+                    // Keep executing do-while loop till user enters a non-negative number
+                    while (d_number1 < 0) {
+                        try {
+                            System.out.print("Enter a non-negative number: ");
+                            d_number1 = scanner.nextDouble();
+
+                            if (d_number1 < 0)
+                                System.out.println("Square Root is only applicable for non-negative numbers");
+                            else
+                                System.out.println("Square Root of " + d_number1 + " is: " + calculator.squareRoot(d_number1) + "\n");
+                        }
+                        // To handle cases where user enters non-numeric input
+                        catch (InputMismatchException e) {
+                            System.out.println("Square Root is only applicable for non-negative numbers");
+                        }
+                        scanner.nextLine(); // Clear the buffer to receive new input
+                    }
+
                     break;
 
                 case 3:
                     // find power
-                    System.out.print("Enter the first number : ");
-                    d_number1 = scanner.nextDouble();
-                    System.out.print("Enter the second number : ");
-                    d_number2 = scanner.nextDouble();
-                    System.out.println(d_number1 + " raised to " + d_number2 +" is : " + calculator.power(d_number1, d_number2));
+                    d_number1 = Double.POSITIVE_INFINITY; d_number2 = Double.POSITIVE_INFINITY;
+                    while (d_number1 == Double.POSITIVE_INFINITY) {
+                        try {
+                            System.out.print("Enter the first number: ");
+                            d_number1 = scanner.nextDouble();
+                        }
+                        // To handle cases where user enters non-numeric input
+                        catch (InputMismatchException e) {
+                            System.out.println("Non-numeric input is not valid");
+                        }
+                        scanner.nextLine(); // Clear the buffer to receive new input
+                    }
+                    while (d_number2 == Double.POSITIVE_INFINITY) {
+                        try {
+                            System.out.print("Enter the second number: ");
+                            d_number2 = scanner.nextDouble();
+                        }
+                        // To handle cases where user enters non-numeric input
+                        catch (InputMismatchException e) {
+                            System.out.println("Non-numeric input is not valid");
+                        }
+                        scanner.nextLine(); // Clear the buffer to receive new input
+                    }
+
+                    System.out.println(d_number1 + " raised to " + d_number2 + " is: " + calculator.power(d_number1, d_number2));
                     System.out.println("\n");
                     break;
 
                 case 4:
                     // find natural log
-                    System.out.print("Enter a number : ");
-                    d_number1 = scanner.nextDouble();
-                    System.out.println("Natural log of " + d_number1 + " is : " + calculator.naturalLog(d_number1));
-                    System.out.println("\n");
+                    d_number1 = 0;
+
+                    // Keep executing do-while loop till user enters a positive number
+                    while (d_number1 <= 0) {
+                        try {
+                            System.out.print("Enter a positive number: ");
+                            d_number1 = scanner.nextDouble();
+
+                            if (d_number1 <= 0)
+                                System.out.println("Natural Logarithm is only applicable for positive numbers");
+                            else
+                                System.out.println("Natural Logarithm of " + d_number1 + " is: " + calculator.naturalLog(d_number1) + "\n");
+                        }
+                        // To handle cases where user enters non-numeric input
+                        catch (InputMismatchException e) {
+                            System.out.println("Natural Logarithm is only applicable for positive numbers");
+                        }
+                        scanner.nextLine(); // Clear the buffer to receive new input
+                    }
+
                     break;
 
                 default:
