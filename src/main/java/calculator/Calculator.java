@@ -66,6 +66,7 @@ public class Calculator {
                         }
                         scanner.nextLine(); // Clear the buffer to receive new input
                     }
+                    
                     break;
 
                 case 2:
