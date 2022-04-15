@@ -44,14 +44,14 @@ public class CalculatorTest {
 
     @Test
     public void sqrootTruePositive(){
-        assertEquals("Finding square root for True Positive", 11, calculator.sqroot(121), DELTA);
-        assertEquals("Finding square root for True Positive", 121, calculator.sqroot(14641), DELTA);
+        assertEquals("Finding square root for True Positive", 11, calculator.squareRoot(121), DELTA);
+        assertEquals("Finding square root for True Positive", 121, calculator.squareRoot(14641), DELTA);
     }
 
     @Test
     public void sqrootTrueNegative(){
-        assertNotEquals("Finding square root for True Negative", 69, calculator.sqroot(3), DELTA);
-        assertNotEquals("Finding square root for True Negative", -42, calculator.sqroot(4), DELTA);
+        assertNotEquals("Finding square root for True Negative", 69, calculator.squareRoot(3), DELTA);
+        assertNotEquals("Finding square root for True Negative", -42, calculator.squareRoot(4), DELTA);
     }
 
 

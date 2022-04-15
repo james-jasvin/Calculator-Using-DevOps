@@ -14,7 +14,8 @@ public class Calculator {
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
         Scanner scanner = new Scanner(System.in);
-        double number1, number2;
+        double d_number1, d_number2;
+        int i_number1, i_number2;
 
         // When the Docker container is started in the background via Ansible and you attach your terminal to it,
         // the initial application System.out.println statements are wiped out, to avoid that we use this stop-gap fix
@@ -46,8 +47,8 @@ public class Calculator {
                 case 1:
                     // find factorial
                     System.out.print("Enter a number : ");
-                    number1 = scanner.nextDouble();
-                    System.out.println("Factorial of " + number1 + " is : " + calculator.factorial(number1));
+                    i_number1 = scanner.nextInt();
+                    System.out.println("Factorial of " + i_number1 + " is : " + calculator.factorial(i_number1));
                     System.out.println("\n");
 
                     break;
@@ -55,26 +56,26 @@ public class Calculator {
                 case 2:
                     // find square root
                     System.out.print("Enter a number : ");
-                    number1 = scanner.nextDouble();
-                    System.out.println("Square root of " + number1 + " is : " + calculator.sqroot(number1));
+                    d_number1 = scanner.nextDouble();
+                    System.out.println("Square root of " + d_number1 + " is : " + calculator.squareRoot(d_number1));
                     System.out.println("\n");
                     break;
 
                 case 3:
                     // find power
                     System.out.print("Enter the first number : ");
-                    number1 = scanner.nextDouble();
+                    d_number1 = scanner.nextDouble();
                     System.out.print("Enter the second number : ");
-                    number2 = scanner.nextDouble();
-                    System.out.println(number1 + " raised to power " + number2+" is : " + calculator.power(number1, number2));
+                    d_number2 = scanner.nextDouble();
+                    System.out.println(d_number1 + " raised to " + d_number2 +" is : " + calculator.power(d_number1, d_number2));
                     System.out.println("\n");
                     break;
 
                 case 4:
                     // find natural log
                     System.out.print("Enter a number : ");
-                    number1 = scanner.nextDouble();
-                    System.out.println("Natural log of " + number1 + " is : " + calculator.naturalLog(number1));
+                    d_number1 = scanner.nextDouble();
+                    System.out.println("Natural log of " + d_number1 + " is : " + calculator.naturalLog(d_number1));
                     System.out.println("\n");
                     break;
 
@@ -85,10 +86,10 @@ public class Calculator {
         } while (true);
     }
 
-    public double factorial(double number1) {
+    public int factorial(int number1) {
         logger.info("[FACTORIAL] - " + number1);
 
-        double result = 1;
+        int result = 1;
         for(int i = 1; i <= number1; i++)
             result *= i;
 
@@ -96,7 +97,7 @@ public class Calculator {
         return result;
     }
 
-    public double sqroot(double number1) {
+    public double squareRoot(double number1) {
         logger.info("[SQ ROOT] - " + number1);
         double result = Math.sqrt(number1);
         logger.info("[RESULT - SQ ROOT] - " + result);
