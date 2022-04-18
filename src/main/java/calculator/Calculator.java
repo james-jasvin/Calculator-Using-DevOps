@@ -62,7 +62,7 @@ public class Calculator {
                         }
                         // To handle cases where user enters non-numeric input
                         catch (InputMismatchException e) {
-                            System.out.println("Square Root is only applicable for non-negative numbers");
+                            System.out.println("Factorial is only applicable for non-negative integers");
                         }
                         scanner.nextLine(); // Clear the buffer to receive new input
                     }
