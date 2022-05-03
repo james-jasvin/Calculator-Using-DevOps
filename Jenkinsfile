@@ -54,11 +54,12 @@ pipeline {
         // Ansible Deploy to remote server (managed host)
         stage('Ansible Deploy') {
             steps {
-                ansiblePlaybook
+                ansiblePlaybook becomeUser: 'null',
                 colorized: true,
                 installation: 'Ansible',
                 inventory: 'inventory',
-                playbook: 'deploy-playbook.yml'
+                playbook: 'deploy-playbook.yml',
+                sudoUser: 'null'
             }
         }
     }
