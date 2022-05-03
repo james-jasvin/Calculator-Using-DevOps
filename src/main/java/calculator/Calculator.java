@@ -41,6 +41,7 @@ public class Calculator {
             }
             catch (InputMismatchException error) {
                 System.out.println("Exiting....");
+                scanner.close();
                 return;
             }
 
@@ -149,6 +150,7 @@ public class Calculator {
 
                 default:
                     System.out.println("Exiting....");
+                    scanner.close();
                     return;
             }
         } while (true);

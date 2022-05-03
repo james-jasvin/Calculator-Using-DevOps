@@ -56,7 +56,6 @@ pipeline {
             steps {
                 ansiblePlaybook becomeUser: 'null',
                 colorized: true,
-                credentialsId: 'dockerhub-id',
                 installation: 'Ansible',
                 inventory: 'inventory',
                 playbook: 'deploy-playbook.yml',
